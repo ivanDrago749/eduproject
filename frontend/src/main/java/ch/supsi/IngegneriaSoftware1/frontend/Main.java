@@ -5,11 +5,11 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
-import
+import ch.supsi.IngegneriaSoftware1.backend.Film;
 
 public class IMDBReader {
 
-    public static TreeMap<String, List<Movie>> readCSV(String filePath) {
+    public static TreeMap<String, List<Film>> readCSV(String filePath) {
         TreeMap<String, List<Movie>> moviesByDirector = new TreeMap<>();
 
         try (CSVReader reader = new CSVReader(new FileReader(filePath))) {

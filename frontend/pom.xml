@@ -13,6 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.opencsv</groupId>
@@ -20,6 +21,13 @@
             <version>5.9</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>ch.supsi.IngegneriaSoftware1.backend</groupId>  <!-- Usa il groupId del backend -->
+            <artifactId>IngegneriaSoftware1-backend</artifactId>  <!-- Nome del modulo backend -->
+            <version>1.0-SNAPSHOT</version>  <!-- Deve essere la stessa versione del backend -->
+        </dependency>
+
     </dependencies>
+
 
 </project>
