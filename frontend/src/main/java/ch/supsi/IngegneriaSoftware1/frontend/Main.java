@@ -10,7 +10,7 @@ import ch.supsi.IngegneriaSoftware1.backend.Film;
 public class IMDBReader {
 
     public static TreeMap<String, List<Film>> readCSV(String filePath) {
-        TreeMap<String, List<Movie>> moviesByDirector = new TreeMap<>();
+        TreeMap<String, List<Film>> moviesByDirector = new TreeMap<>();
 
         try (CSVReader reader = new CSVReader(new FileReader(filePath))) {
             String[] line;
@@ -25,6 +25,7 @@ public class IMDBReader {
                 if (line.length >= 14) {
                     String title = line[1].trim();
                     int releaseYear = Integer.parseInt(line[2].trim());
+                    int runTime = Integer.parseInt(line[4].trim());
                     double imdbRating = Double.parseDouble(line[6].trim());
                     String director = line[9].trim();
                     String mainActor = line[10].trim();
@@ -37,7 +38,7 @@ public class IMDBReader {
                         stars.add(line[i].trim());
                     }
 
-                    Movie movie = new Movie(title, mainActor, imdbRating, releaseYear, stars);
+                    Film movie = new Film(title, runTime, releaseYear, director, stars);
                     moviesByDirector.computeIfAbsent(director, k -> new ArrayList<>()).add(movie);
                 }
             }
@@ -49,12 +50,12 @@ public class IMDBReader {
 
     public static void main(String[] args) {
         String filePath = "imdb_top_1000.csv"; // Assicurati di impostare il percorso corretto del file
-        TreeMap<String, List<Movie>> moviesByDirector = readCSV(filePath);
+        TreeMap<String, List<Film>> moviesByDirector = readCSV(filePath);
 
         // Stampa il contenuto della TreeMap
         for (String director : moviesByDirector.keySet()) {
             System.out.println("Director: " + director);
-            for (Movie movie : moviesByDirector.get(director)) {
+            for (Film movie : moviesByDirector.get(director)) {
                 System.out.println("  " + movie);
             }
         }

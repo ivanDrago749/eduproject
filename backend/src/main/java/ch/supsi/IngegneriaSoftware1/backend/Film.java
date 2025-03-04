@@ -1,24 +1,36 @@
 package ch.supsi.IngegneriaSoftware1.backend;
 
-public class Film {
-    private int DurataFilm;
-    private String[] attori;
-    private String direttore;
-    private int AnnoPublicazione;
+import java.util.List;
 
-    public Film(int durataFilm, int annoPublicazione, String direttore, String[] attori) {
-        DurataFilm = durataFilm;
-        AnnoPublicazione = annoPublicazione;
+public class Film {
+    private String title;
+    private int durataFilm;
+    private List<String> attori;
+    private String direttore;
+    private int annoPublicazione;
+
+    public Film(String title, int durataFilm, int annoPublicazione, String direttore, List<String> attori) {
+        this.title = title;
+        this.durataFilm = durataFilm;
+        this.annoPublicazione = annoPublicazione;
         this.direttore = direttore;
         this.attori = attori;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public int getDurataFilm() {
-        return DurataFilm;
+        return durataFilm;
     }
 
     public void setDurataFilm(int durataFilm) {
-        DurataFilm = durataFilm;
+        durataFilm = durataFilm;
     }
 
     public String getDirettore() {
@@ -29,19 +41,19 @@ public class Film {
         this.direttore = direttore;
     }
 
-    public String[] getAttori() {
+    public List<String> getAttori() {
         return attori;
     }
 
-    public void setAttori(String[] attori) {
+    public void setAttori(List<String> attori) {
         this.attori = attori;
     }
 
     public int getAnnoPublicazione() {
-        return AnnoPublicazione;
+        return annoPublicazione;
     }
 
     public void setAnnoPublicazione(int annoPublicazione) {
-        AnnoPublicazione = annoPublicazione;
+        annoPublicazione = annoPublicazione;
     }
 }
