@@ -25,20 +25,21 @@ public class IMDBReader {
                 if (line.length >= 14) {
                     String title = line[1].trim();
                     int releaseYear = Integer.parseInt(line[2].trim());
-                    int runTime = Integer.parseInt(line[4].trim());
+                    String runTimeStr = line[4].trim();
+                    runTimeStr = runTimeStr.replaceAll("[^0-9]", "");
+                    int runTime = Integer.parseInt(runTimeStr);
                     double imdbRating = Double.parseDouble(line[6].trim());
                     String director = line[9].trim();
-                    String mainActor = line[10].trim();
 
                     // Non salviamo il campo Genre (line[5])
 
                     // Le star aggiuntive: Star2, Star3 e Star4
                     List<String> stars = new ArrayList<>();
-                    for (int i = 11; i <= 13 && i < line.length; i++) {
+                    for (int i = 10; i <= 13; i++) {
                         stars.add(line[i].trim());
                     }
 
-                    Film movie = new Film(title, runTime, releaseYear, director, stars);
+                    Film movie = new Film(title, runTime, releaseYear, stars, imdbRating);
                     moviesByDirector.computeIfAbsent(director, k -> new ArrayList<>()).add(movie);
                 }
             }
@@ -49,7 +50,7 @@ public class IMDBReader {
     }
 
     public static void main(String[] args) {
-        String filePath = "imdb_top_1000.csv"; // Assicurati di impostare il percorso corretto del file
+        String filePath = "/Users/simonecoggio/Desktop/SUPSI/IngegneriaDelSoftware/eduproject/imdb_top_1000.csv"; // Assicurati di impostare il percorso corretto del file
         TreeMap<String, List<Film>> moviesByDirector = readCSV(filePath);
 
         // Stampa il contenuto della TreeMap

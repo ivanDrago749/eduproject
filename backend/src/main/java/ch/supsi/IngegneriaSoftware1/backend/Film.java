@@ -3,19 +3,25 @@ package ch.supsi.IngegneriaSoftware1.backend;
 import java.util.List;
 
 public class Film {
+    private double rating;
     private String title;
     private int durataFilm;
     private List<String> attori;
-    private String direttore;
     private int annoPublicazione;
 
-    public Film(String title, int durataFilm, int annoPublicazione, String direttore, List<String> attori) {
+    public Film(String title, int durataFilm, int annoPublicazione, List<String> attori, double rating ) {
         this.title = title;
         this.durataFilm = durataFilm;
         this.annoPublicazione = annoPublicazione;
-        this.direttore = direttore;
         this.attori = attori;
+        this.rating = rating;
     }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {this.rating = rating;}
 
     public String getTitle() {
         return title;
@@ -33,14 +39,6 @@ public class Film {
         durataFilm = durataFilm;
     }
 
-    public String getDirettore() {
-        return direttore;
-    }
-
-    public void setDirettore(String direttore) {
-        this.direttore = direttore;
-    }
-
     public List<String> getAttori() {
         return attori;
     }
@@ -55,5 +53,16 @@ public class Film {
 
     public void setAnnoPublicazione(int annoPublicazione) {
         annoPublicazione = annoPublicazione;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "rating=" + rating +
+                ", title='" + title + '\'' +
+                ", durataFilm=" + durataFilm +
+                ", attori=" + attori +
+                ", annoPublicazione=" + annoPublicazione +
+                '}';
     }
 }
