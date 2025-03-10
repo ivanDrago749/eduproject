@@ -25,7 +25,6 @@ public class DataLogic {
                 .sum();
     }
 
-
     public String getBestDirector() {
         return moviesByDirector.entrySet().stream()
                 .max(Comparator.comparingDouble(entry -> averageRating(entry.getValue())))
@@ -40,7 +39,7 @@ public class DataLogic {
                 .orElse(0.0);
     }
 
-    public static String getMostFrequentActorFromDirectors() {
+    public static String getMostFrequentActor() {
         Map<String, Long> actorFrequency = moviesByDirector.values().stream()
                 .flatMap(List::stream)
                 .flatMap(film -> film.getAttori().stream())
