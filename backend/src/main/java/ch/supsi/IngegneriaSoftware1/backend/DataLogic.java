@@ -52,13 +52,13 @@ public class DataLogic {
 
     }
 
-    public static int getMostProfitableYear() {
+    public static int getYearWithMostReleases() {
         return moviesByDirector.values().stream()
                 .flatMap(List::stream)
-                .collect(Collectors.groupingBy(Film::getAnnoPublicazione, Collectors.summingDouble(Film::getIntroiti)))
+                .collect(Collectors.groupingBy(Film::getAnnoPublicazione, Collectors.counting()))
                 .entrySet().stream()
                 .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
                 .orElse(0);
     }
-
 }
