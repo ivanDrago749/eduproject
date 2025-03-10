@@ -1,4 +1,7 @@
-package ch.supsi.IngegneriaSoftware1.frontend;
+package ch.supsi.IngegneriaSoftware1.backend;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import java.util.List;
 
@@ -8,13 +11,23 @@ public class Film {
     private int durataFilm;
     private List<String> attori;
     private int annoPublicazione;
+    private double introiti;
 
-    public Film(String title, int durataFilm, int annoPublicazione, List<String> attori, double rating ) {
+    public Film(String title, int durataFilm, int annoPublicazione, List<String> attori, double rating, double introiti ) {
         this.title = title;
         this.durataFilm = durataFilm;
         this.annoPublicazione = annoPublicazione;
         this.attori = attori;
         this.rating = rating;
+        this.introiti = introiti;
+    }
+
+    public double getIntroiti() {
+        return introiti;
+    }
+
+    public void setIntroiti(double introiti) {
+        this.introiti = introiti;
     }
 
     public double getRating() {

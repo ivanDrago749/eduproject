@@ -1,11 +1,11 @@
-package ch.supsi.IngegneriaSoftware1.frontend;
+package ch.supsi.IngegneriaSoftware1.backend;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class DataLogic {
-    static IMDBReader fileReader = new IMDBReader();
-    static TreeMap<String, List<Film>> moviesByDirector = fileReader.readCSV("/Users/simonecoggio/Desktop/SUPSI/IngegneriaDelSoftware/eduproject/imdb_top_1000.csv");
+    static IMDBManager fileReader = new IMDBManager();
+    static TreeMap<String, List<Film>> moviesByDirector = IMDBManager.readCSV("/Users/simonecoggio/Desktop/SUPSI/IngegneriaDelSoftware/eduproject/imdb_top_1000.csv");
 
     public TreeMap<String, List<Film>> getMoviesByDirector() {
         return moviesByDirector;
@@ -51,6 +51,16 @@ public class DataLogic {
                 .map(Map.Entry::getKey)
                 .orElse(null);
 
+    }
+
+    public static int getMostProductiveYear(){
+        return moviesByDirector.values().stream()
+                .flatMap(List::stream)
+                .collect(Collectors.groupingBy(Film::getAnnoPublicazione, Collectors.summingDouble(Film::getIntroiti)))
+                .entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .orElse(0);
     }
 
 }
