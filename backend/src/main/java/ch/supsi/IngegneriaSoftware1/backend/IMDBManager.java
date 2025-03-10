@@ -20,7 +20,7 @@ public class IMDBManager {
                 // Struttura prevista:
                 // [0] Poster_Link, [1] Series_Title, [2] Released_Year, [3] Certificate,
                 // [4] Runtime, [5] Genre, [6] IMDB_Rating, [7] Overview, [8] Meta_score,
-                // [9] Director, [10] Star1, [11] Star2, [12] Star3, [13] Star4, [15] guadagni
+                // [9] Director, [10] Star1, [11] Star2, [12] Star3, [13] Star4, [14] guadagni
                 if (line.length >= 14) {
 
                     String title = line[1].trim();
@@ -38,10 +38,8 @@ public class IMDBManager {
                     for (int i = 10; i <= 13; i++) {
                         stars.add(line[i].trim());
                     }
-                    String gross = line[14].trim().replaceAll("[^0-9]", "");
-                    int introiti = Integer.parseInt(gross);
 
-                    Film movie = new Film(title, runTime, releaseYear, stars, imdbRating, introiti);
+                    Film movie = new Film(title, runTime, releaseYear, stars, imdbRating);
                     moviesByDirector.computeIfAbsent(director, k -> new ArrayList<>()).add(movie);
                 }
             }

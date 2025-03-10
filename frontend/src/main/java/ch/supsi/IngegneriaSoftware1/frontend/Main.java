@@ -16,7 +16,7 @@ public class Main{
         System.out.println(dl.getAvarageRunTime());
         System.out.println(dl.getBestDirector());
         System.out.println(dl.getNumberOfMovies());
-        System.out.println(dl.getMostFrequentActor());
-        System.out.println(dl.getMostProductiveYear());
+        System.out.println(DataLogic.getMostFrequentActor());
+        System.out.println(DataLogic.getMostProfitableYear());
     }
 }
