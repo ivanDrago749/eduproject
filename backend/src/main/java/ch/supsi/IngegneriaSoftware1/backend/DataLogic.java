@@ -19,9 +19,9 @@ public class DataLogic {
                 .orElse(0);
     }
 
-    public long getNumberOfMovies() {
+    public int getNumberOfMovies() {
         return moviesByDirector.values().stream()
-                .mapToLong(List::size)
+                .mapToInt(List::size)
                 .sum();
     }
 

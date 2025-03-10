@@ -49,7 +49,7 @@ public class IMDBManager {
         return moviesByDirector;
     }
 
-    public static void writeCSV(int numberOfMovies, double avarageRunTime, String bestDirector, String mostFamousActor, int mostProductiveYear){
+    public static void writeCSV(int numberOfMovies, double avarageRunTime, String bestDirector, String mostFamousActor, int mostProductiveYear, String filePath){
 
     }
 }
