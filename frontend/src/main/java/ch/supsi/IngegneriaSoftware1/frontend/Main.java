@@ -1,5 +1,4 @@
 package ch.supsi.IngegneriaSoftware1.frontend;
-import ch.supsi.IngegneriaSoftware1.backend.Film;
 import java.util.List;
 import java.util.TreeMap;
 public class Main{

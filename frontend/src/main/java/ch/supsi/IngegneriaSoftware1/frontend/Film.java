@@ -1,4 +1,4 @@
-package ch.supsi.IngegneriaSoftware1.backend;
+package ch.supsi.IngegneriaSoftware1.frontend;
 
 import java.util.List;
 
