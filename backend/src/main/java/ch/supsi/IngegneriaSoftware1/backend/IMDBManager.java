@@ -1,7 +1,8 @@
 package ch.supsi.IngegneriaSoftware1.backend;
 
 import com.opencsv.CSVReader;
-import java.io.FileReader;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
@@ -50,6 +51,21 @@ public class IMDBManager {
     }
 
     public static void writeCSV(int numberOfMovies, double avarageRunTime, String bestDirector, String mostFamousActor, int mostProductiveYear, String filePath){
+        try (FileOutputStream file = new FileOutputStream(filePath);
+             PrintWriter writer = new PrintWriter(file, true)) {
 
+            writer.println("numeri film: " + numberOfMovies);
+            writer.println("avarage run time: " + avarageRunTime);
+            writer.println("best director: " + bestDirector);
+            writer.println("most productive year: " + mostProductiveYear);
+            writer.println("most productive actor: " + mostFamousActor);
+
+
+        } catch (FileNotFoundException e) {
+
+        } catch (IOException e) {
+
+        }
     }
+
 }

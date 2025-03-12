@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class DataLogic {
     static IMDBManager fileReader = new IMDBManager();
-    static TreeMap<String, List<Film>> moviesByDirector = IMDBManager.readCSV("/Users/simonecoggio/Desktop/SUPSI/IngegneriaDelSoftware/eduproject/imdb_top_1000.csv");
+    static TreeMap<String, List<Film>> moviesByDirector = IMDBManager.readCSV("C:/Users/Abaco/Documents/SUPSI/Ingegneria del software 1/imdb_top_1000.csv");
 
     public TreeMap<String, List<Film>> getMoviesByDirector() {
         return moviesByDirector;

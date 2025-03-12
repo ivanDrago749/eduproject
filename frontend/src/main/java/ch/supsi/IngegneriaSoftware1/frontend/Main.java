@@ -16,7 +16,7 @@ public class Main {
         System.out.print("Inserisci il percorso del file TXT: ");
         String filePath = scanner.nextLine();
 
-        imdbManager.writeCSV(dl.getNumberOfMovies(), dl.getAvarageRunTime(), dl.getBestDirector(), DataLogic.getMostFrequentActor(), DataLogic.getYearWithMostReleases(), filePath);
+        IMDBManager.writeCSV(dl.getNumberOfMovies(), dl.getAvarageRunTime(), dl.getBestDirector(), DataLogic.getMostFrequentActor(), DataLogic.getYearWithMostReleases(), filePath);
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
